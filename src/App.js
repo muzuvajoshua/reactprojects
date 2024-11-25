@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Employee from './components/Employee';
+import { useState } from 'react';
 
 function App() {
+  const [role ,setRole] =useState('Software engineer');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
+      <input type='text' onChange={(e) =>setRole(e.target.value)}/>
+        <div className='flex flex-wrap justify-center'>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p>
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
+        </p>
+        <p>
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
+        </p>
+        <p>
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
+        </p>
+        <p>
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
+        </p>
+        <p>
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
+        </p>
+        <p>
+        <Employee name ="Joshua" role ={role} img="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=600"/>
+        </p>
+        </div>
+      
     </div>
   );
 }
