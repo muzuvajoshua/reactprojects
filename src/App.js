@@ -1,7 +1,9 @@
 import './App.css';
+import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployee';
 import Employee from './components/Employee';
 import { useState } from 'react';
-// import {v4 as uuidv4} from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 function App() {
   const [role ,setRole] =useState('Software engineer');
@@ -54,7 +56,19 @@ function App() {
 
     });
     setEmployee(updatedEmployees)
-   
+}
+
+
+function newEmployee(name, role, img){
+  const newEmployee = {
+      id:uuidv4(),
+      name:name,
+      role:role,
+      img:img,
+    };
+    
+    setEmployee([...employees, newEmployee])
+    
   }
   return (
     <div className="App">
@@ -62,18 +76,28 @@ function App() {
       <input type='text' onChange={(e) =>setRole(e.target.value)}/>
         <div className='flex flex-wrap justify-center'>
         {employees.map((employee)=> {
+          const editEmployee=(
+            <EditEmployee 
+            id={employee.id}
+            name={employee.name}
+            role={employee.role}
+            updateEmployee={updateEmployee}
+            />
+          );
           return (<Employee
           key ={employee.id}
           id={employee.id}
           name ={employee.name}
           role={employee.role}
           img={employee.img}
-          updateEmployee={updateEmployee}
+          editEmployee={editEmployee}
           />
           );
 
         })}
         </div>
+
+        <AddEmployee newEmployee ={ newEmployee }/>
       
     </div>
   );
